@@ -1,8 +1,7 @@
 import styled from '@emotion/styled'
+import { GeneralLayout } from 'src/layouts'
 
-const Home = styled.div`
-  display: block;
-`
+const Home = styled(GeneralLayout)``
 
 const Styled = { Home }
 

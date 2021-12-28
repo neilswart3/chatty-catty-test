@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 
 const Header = styled.div`
-  display: block;
+  padding: 1rem;
 `
 
 const Styled = { Header }

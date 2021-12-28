@@ -6,4 +6,4 @@ export default {
   component: Header,
 }
 
-export const Default = () => <Header />
+export const Default = (args: any) => <Header {...args} />

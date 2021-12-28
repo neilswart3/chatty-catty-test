@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 
 const Footer = styled.div`
-  display: block;
+  padding: 1rem;
 `
 
 const Styled = { Footer }

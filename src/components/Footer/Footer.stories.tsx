@@ -6,4 +6,4 @@ export default {
   component: Footer,
 }
 
-export const Default = () => <Footer />
+export const Default = (args: any) => <Footer {...args} />

@@ -3,6 +3,7 @@ const colors = {
 
   background: '#292f3f',
   backgroundLight: '#373E4E',
+  backgroundDark: '#272A35',
 
   purple: '#b347ea',
   purpleLight: '#C26BEE',

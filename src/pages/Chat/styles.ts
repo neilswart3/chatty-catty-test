@@ -1,8 +1,7 @@
 import styled from '@emotion/styled'
+import { GeneralLayout } from 'src/layouts'
 
-const Chat = styled.div`
-  display: block;
-`
+const Chat = styled(GeneralLayout)``
 
 const Styled = { Chat }
 

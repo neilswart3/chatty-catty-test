@@ -13,7 +13,7 @@ const PhoneLayout = styled(Paper)`
   position: relative;
   background-color: ${phoneColors.background};
   height: 80vh;
-  min-width: 420px;
+  width: 420px;
   border-radius: 40px;
   overflow: hidden;
 
@@ -58,6 +58,8 @@ const Camera = styled(HeaderAccessories)`
 `
 
 const ContentWrap = styled(Paper)`
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   background-color: ${colors.background};
   position: relative;
   height: 92%;
@@ -65,7 +67,7 @@ const ContentWrap = styled(Paper)`
   width: 97%;
   border-radius: 20px;
   margin: 0 auto;
-  overflow-x: hidden;
+  overflow: hidden;
 `
 
 const Content = styled(PerfectScrollbar)`

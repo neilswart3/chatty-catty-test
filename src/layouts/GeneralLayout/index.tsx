@@ -1,22 +1,27 @@
 import React from 'react'
-import { Header, Footer } from 'src/components'
 import { PhoneLayout } from '..'
 import Styled from './styles'
 
 interface Props {
   children: React.ReactNode
+  header?: React.ReactNode
+  footer?: React.ReactNode
+  className?: string
 }
 
 const GeneralLayout: React.FC<Props> = (props) => {
-  const { children } = props
+  const {
+    children,
+    className = 'GeneralLayout',
+    header = null,
+    footer = null,
+  } = props
 
   return (
-    <Styled.GeneralLayout>
+    <Styled.GeneralLayout className={className}>
       <Styled.ContentWrap>
-        <PhoneLayout>
-          <Header />
+        <PhoneLayout header={header} footer={footer}>
           {children}
-          <Footer />
         </PhoneLayout>
       </Styled.ContentWrap>
     </Styled.GeneralLayout>
