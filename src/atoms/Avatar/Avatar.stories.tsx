@@ -6,4 +6,4 @@ export default {
   component: Avatar,
 }
 
-export const Default = () => <Avatar />
+export const Default = (args: any) => <Avatar {...args} />

@@ -1,25 +1,40 @@
 import colors from './colors'
 
 const palette = {
-  type: 'dark',
+  mode: 'dark',
   primary: {
-    main: '#b347ea',
+    main: colors.purple,
+    dark: colors.purpleDark,
+    light: colors.purpleLight,
+    contrastText: colors.white,
   },
   secondary: {
-    main: '#7a8194',
+    main: colors.gray,
+    dark: colors.grayDark,
+    light: colors.grayLight,
+    contrastText: colors.white,
   },
   background: {
     default: colors.background,
-    paper: '#373e4e',
+    paper: colors.backgroundLight,
   },
   info: {
-    main: '#03a9f1',
+    main: colors.blue,
+    dark: colors.blueDark,
+    light: colors.blueLight,
+    contrastText: colors.white,
   },
   warning: {
-    main: '#f18303',
+    main: colors.orange,
+    dark: colors.orangeDark,
+    light: colors.orangeLight,
+    contrastText: colors.white,
   },
   success: {
-    main: '#00ac83',
+    main: colors.green,
+    dark: colors.greenDark,
+    light: colors.greenLight,
+    contrastText: colors.white,
   },
 }
 

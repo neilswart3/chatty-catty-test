@@ -31,7 +31,7 @@ fs.writeFile(`${dir}/styles.ts`, styles(name), writeFileErrorHandler)
 // storybook.jsx
 fs.writeFile(
   `${dir}/${name}.stories.tsx`,
-  story(name, type),
+  story(name, type, !!props),
   writeFileErrorHandler
 )
 // // test.tsx

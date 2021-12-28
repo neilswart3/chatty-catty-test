@@ -20,7 +20,7 @@ export default ${name}
 `
 
 // component.stories.jsx
-exports.story = (name, type) => {
+exports.story = (name, type, props) => {
   const typeArr = type.split('')
   const folder = [typeArr.splice(0, 1), ...typeArr].join('')
 
@@ -32,7 +32,9 @@ export default {
   component: ${name},
 }
 
-export const Default = () => <${name} />
+export const Default = (${props ? 'args: any' : ''}) => <${name} ${
+    props ? '{...args}' : ''
+  } />
 `
 }
 

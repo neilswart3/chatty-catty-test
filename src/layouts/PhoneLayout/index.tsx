@@ -14,7 +14,9 @@ const PhoneLayout: React.FC<Props> = (props) => {
         <Styled.Speaker />
         <Styled.Camera />
       </Styled.PhoneHeader>
-      <Styled.Content elevation={0}>{children}</Styled.Content>
+      <Styled.ContentWrap elevation={0}>
+        <Styled.Content>{children}</Styled.Content>
+      </Styled.ContentWrap>
     </Styled.PhoneLayout>
   )
 }

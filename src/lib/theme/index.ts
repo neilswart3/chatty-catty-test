@@ -1,8 +1,8 @@
-import { createTheme, responsiveFontSizes } from '@mui/material/styles'
+import { createTheme, responsiveFontSizes, Palette } from '@mui/material/styles'
 import palette from './palette'
 
 let theme = createTheme({
-  palette,
+  palette: palette as Palette,
 })
 
 theme = responsiveFontSizes(theme)

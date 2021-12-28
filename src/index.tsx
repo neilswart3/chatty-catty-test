@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { CssBaseline, ThemeProvider } from '@mui/material'
+import 'react-perfect-scrollbar/dist/css/styles.css'
 import App from './App'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 import reportWebVitals from './reportWebVitals'

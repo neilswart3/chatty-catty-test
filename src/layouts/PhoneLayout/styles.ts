@@ -1,10 +1,11 @@
 import styled from '@emotion/styled/macro'
+import PerfectScrollbar from 'react-perfect-scrollbar'
 import { Paper } from '@mui/material'
 import { colors } from 'src/lib'
 
 const phoneColors = {
   shine: '#282828',
-  background: '#241f21',
+  background: '#181818',
   accessories: '#5c5d5d',
 }
 
@@ -55,16 +56,28 @@ const Camera = styled(HeaderAccessories)`
   left: 75%;
 `
 
-const Content = styled(Paper)`
+const ContentWrap = styled(Paper)`
   background-color: ${colors.background};
   position: relative;
   height: 92%;
+  max-height: 92%;
   width: 97%;
   border-radius: 20px;
   margin: 0 auto;
+  overflow-x: hidden;
+`
+
+const Content = styled(PerfectScrollbar)`
   padding: 1rem;
 `
 
-const Styled = { PhoneLayout, Content, PhoneHeader, Speaker, Camera }
+const Styled = {
+  PhoneLayout,
+  ContentWrap,
+  Content,
+  PhoneHeader,
+  Speaker,
+  Camera,
+}
 
 export default Styled
