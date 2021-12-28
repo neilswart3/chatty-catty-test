@@ -1,12 +1,18 @@
-import { ChatsList } from 'src/components'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { GeneralLayout } from 'src/layouts'
+import { Home, Chat } from 'src/pages'
 
 function App() {
   return (
-    <GeneralLayout>
-      <div>app</div>
-      <ChatsList />
-    </GeneralLayout>
+    <BrowserRouter>
+      <GeneralLayout>
+        <Routes>
+          <Route path='chat/:chatId' element={<Chat />} />
+          <Route index element={<Home />} />
+          <Route path='*' element={<div>Not found</div>} />
+        </Routes>
+      </GeneralLayout>
+    </BrowserRouter>
   )
 }
 

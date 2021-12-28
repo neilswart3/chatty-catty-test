@@ -4,21 +4,21 @@ import { Paper } from '@mui/material'
 import { colors } from 'src/lib'
 
 const phoneColors = {
-  shine: '#282828',
+  shine: '#241f21',
   background: '#181818',
   accessories: '#5c5d5d',
 }
 
 const PhoneLayout = styled(Paper)`
   position: relative;
-  background-color: #282828;
+  background-color: ${phoneColors.background};
   height: 80vh;
   min-width: 420px;
   border-radius: 40px;
   overflow: hidden;
 
   &::before {
-    background-color: #241f21;
+    background-color: ${phoneColors.shine};
     content: '';
     position: absolute;
     left: 50%;
@@ -27,6 +27,7 @@ const PhoneLayout = styled(Paper)`
     border-radius: 30px/60px;
     height: 100%;
     width: 95%;
+    filter: blur(3px);
   }
 `
 
