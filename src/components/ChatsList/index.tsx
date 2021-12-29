@@ -8,7 +8,7 @@ interface Props {}
 const ChatsList: React.FC<Props> = (props) => {
   return (
     <Styled.ChatsList>
-      {[...data, ...data].map((item) => (
+      {data.map((item) => (
         <ChatsItem key={item.id} {...item} />
       ))}
     </Styled.ChatsList>
