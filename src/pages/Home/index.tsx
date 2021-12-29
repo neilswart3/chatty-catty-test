@@ -1,10 +1,10 @@
 import React from 'react'
-import { ChatsList } from 'src/components'
+import { ChatsList, Favourites } from 'src/components'
 import Styled from './styles'
 
 const Home: React.FC = () => {
   return (
-    <Styled.Home>
+    <Styled.Home header={<Favourites />}>
       <ChatsList />
     </Styled.Home>
   )
