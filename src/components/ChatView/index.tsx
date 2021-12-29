@@ -8,14 +8,16 @@ interface Props {}
 const ChatView: React.FC<Props> = (props) => {
   return (
     <Styled.ChatView>
-      {data.map(({ id, message: { date, author, content } }: Chat) => (
-        <Bubble
-          key={id}
-          author={author === 'new author'}
-          text={content}
-          time={date}
-        />
-      ))}
+      {data.conversation.map(
+        ({ id, message: { date, author, content } }: Chat) => (
+          <Bubble
+            key={id}
+            author={author === 'new author'}
+            text={content}
+            time={date}
+          />
+        )
+      )}
     </Styled.ChatView>
   )
 }

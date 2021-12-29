@@ -2,6 +2,7 @@ import styled from '@emotion/styled/macro'
 import PerfectScrollbar from 'react-perfect-scrollbar'
 import { Paper } from '@mui/material'
 import { colors } from 'src/lib'
+import { tablet } from 'src/lib/theme'
 
 const phoneColors = {
   shine: '#241f21',
@@ -10,16 +11,20 @@ const phoneColors = {
 }
 
 const PhoneLayout = styled(Paper)`
-  position: relative;
+  width: 100%;
+  height: 100%;
   background-color: ${phoneColors.background};
-  height: 80vh;
-  width: 420px;
-  border-radius: 40px;
-  overflow: hidden;
+
+  ${tablet} {
+    position: relative;
+    height: 80vh;
+    width: 420px;
+    border-radius: 40px;
+    overflow: hidden;
+  }
 
   &::before {
     background-color: ${phoneColors.shine};
-    content: '';
     position: absolute;
     left: 50%;
     top: 0;
@@ -28,12 +33,21 @@ const PhoneLayout = styled(Paper)`
     height: 100%;
     width: 95%;
     filter: blur(3px);
+
+    ${tablet} {
+      content: '';
+    }
   }
 `
 
 const PhoneHeader = styled.div`
-  position: relative;
-  height: 5%;
+  display: none;
+
+  ${tablet} {
+    position: relative;
+    display: block;
+    height: 5%;
+  }
 `
 
 const HeaderAccessories = styled.div`
@@ -57,17 +71,27 @@ const Camera = styled(HeaderAccessories)`
   left: 75%;
 `
 
-const ContentWrap = styled(Paper)`
+interface ContentWrapProps {
+  image: string
+}
+
+const ContentWrap = styled(Paper)<ContentWrapProps>`
   display: grid;
   grid-template-rows: auto 1fr auto;
   background-color: ${colors.background};
-  position: relative;
-  height: 92%;
-  max-height: 92%;
-  width: 97%;
-  border-radius: 20px;
-  margin: 0 auto;
+  ${({ image }) =>
+    image ? `background: url(${image}}) no-repeat center/cover;` : ''}
   overflow: hidden;
+  height: 100%;
+
+  ${tablet} {
+    position: relative;
+    height: 92%;
+    max-height: 92%;
+    width: 97%;
+    border-radius: 20px;
+    margin: 0 auto;
+  }
 `
 
 const Content = styled(PerfectScrollbar)`

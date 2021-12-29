@@ -5,12 +5,19 @@ type ChatMessage = {
   author: string
 }
 
+type Participant = {
+  id: string
+  firstName: string
+  lastName: string
+  image: string
+}
+
 export type Chat = {
   id: string
   message: ChatMessage
 }
 
-const data: Chat[] = [
+const conversation: Chat[] = [
   {
     id: 'sdsadfasdf',
     message: {
@@ -41,5 +48,23 @@ const data: Chat[] = [
     },
   },
 ]
+
+const data = {
+  participants: {
+    me: {
+      id: 'sdasfdasgfg',
+      firstName: 'David',
+      lastName: 'Smith',
+      image: '',
+    },
+    you: {
+      id: 'sdfsdf',
+      firstName: 'John',
+      lastName: 'Doe',
+      image: '',
+    },
+  },
+  conversation,
+}
 
 export default data
