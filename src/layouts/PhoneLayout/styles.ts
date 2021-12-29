@@ -17,7 +17,7 @@ const PhoneLayout = styled(Paper)`
 
   ${tablet} {
     position: relative;
-    height: 80vh;
+    height: 93vh;
     width: 420px;
     border-radius: 40px;
     overflow: hidden;

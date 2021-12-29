@@ -9,10 +9,9 @@ const Favourite = styled(Paper)<FavouriteProps>`
   position: relative;
   height: 9rem;
   width: 6rem;
-  box-shadow: 20px 24px 34px rgba(0, 0, 0, 0.45);
+  box-shadow: 14px 6px 20px rgba(0, 0, 0, 0.45);
   border-radius: 1.9rem;
   overflow: hidden;
-
   ${({ image }) =>
     image ? `background: url(${image}) no-repeat center/cover` : ''}
 `
