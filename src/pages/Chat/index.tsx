@@ -5,6 +5,8 @@ import Styled from './styles'
 const Chat: React.FC = () => {
   return (
     <Styled.Chat
+      back='/'
+      title='Chat Title'
       header={<div>Header component</div>}
       footer={<div>Footer component</div>}
     >

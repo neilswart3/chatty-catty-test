@@ -9,10 +9,19 @@ interface Props {
   footer: React.ReactNode
   className?: string
   image: string
+  title: string
 }
 
 const PhoneLayout: React.FC<Props> = (props) => {
-  const { children, className = 'PhoneLayout', header, footer, image } = props
+  const {
+    children,
+    className = 'PhoneLayout',
+    header,
+    footer,
+    image,
+    back,
+    title,
+  } = props
 
   return (
     <Styled.PhoneLayout className={className}>
@@ -21,7 +30,11 @@ const PhoneLayout: React.FC<Props> = (props) => {
         <Styled.Camera />
       </Styled.PhoneHeader>
       <Styled.ContentWrap image={image} elevation={0}>
-        {header && <Header>{header}</Header>}
+        {header && (
+          <Header title={title} back={back}>
+            {header}
+          </Header>
+        )}
         <Styled.Content>{children}</Styled.Content>
         {footer && <Footer>{footer}</Footer>}
       </Styled.ContentWrap>

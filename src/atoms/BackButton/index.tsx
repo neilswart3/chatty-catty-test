@@ -8,8 +8,8 @@ interface Props {
 
 const BackButton: React.FC<Props> = ({ path = '/' }) => {
   return (
-    <Styled.BackButton to={path} component={Link}>
-      <KeyboardBackspace />
+    <Styled.BackButton size='large' to={path} component={Link}>
+      <KeyboardBackspace fontSize='large' />
     </Styled.BackButton>
   )
 }

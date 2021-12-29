@@ -4,7 +4,7 @@ import Styled from './styles'
 
 const Home: React.FC = () => {
   return (
-    <Styled.Home header={<Favourites />}>
+    <Styled.Home title='Chatty Catty' header={<Favourites />}>
       <ChatsList />
     </Styled.Home>
   )

@@ -6,9 +6,7 @@ interface BackButtonProps {
   to: string
 }
 
-const BackButton = styled(IconButton)<BackButtonProps>`
-  display: block;
-`
+const BackButton = styled(IconButton)<BackButtonProps>``
 
 const Styled = { BackButton }
 

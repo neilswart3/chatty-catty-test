@@ -56,7 +56,7 @@ describe('${name} Component', () => {
 `
 
 // styles.ts
-exports.styles = (name) => `import styled from '@emotion/styled'
+exports.styles = (name) => `import styled from '@emotion/styled/macro'
 
 const ${name} = styled.div\`
   display: block;

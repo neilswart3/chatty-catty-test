@@ -9,11 +9,13 @@ interface Props {
   footer?: React.ReactNode
   className?: string
   image?: string
+  title?: string
 }
 
 const GeneralLayout: React.FC<Props> = (props) => {
   const {
     children,
+    title = '',
     back = null,
     className = 'GeneralLayout',
     header = null,
@@ -25,7 +27,13 @@ const GeneralLayout: React.FC<Props> = (props) => {
     <Styled.GeneralLayout className={className}>
       {image && <Styled.Background image={image} />}
       <Styled.ContentWrap>
-        <PhoneLayout back={back} image={image} header={header} footer={footer}>
+        <PhoneLayout
+          title={title}
+          back={back}
+          image={image}
+          header={header}
+          footer={footer}
+        >
           {children}
         </PhoneLayout>
       </Styled.ContentWrap>

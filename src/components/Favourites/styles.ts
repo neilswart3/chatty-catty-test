@@ -2,7 +2,7 @@ import styled from '@emotion/styled/macro'
 import { tablet } from 'src/lib/theme'
 
 const Favourites = styled.div`
-  padding-bottom: 1.5rem;
+  padding: 0.5rem 0 1.5rem;
   max-width: 100vw;
   overflow: hidden;
 
