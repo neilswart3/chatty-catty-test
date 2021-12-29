@@ -7,13 +7,6 @@ type ChatMessage = {
   author: string
 }
 
-type Participant = {
-  id: string
-  firstName: string
-  lastName: string
-  image: string
-}
-
 export type Chat = {
   id: string
   message: ChatMessage
