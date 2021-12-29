@@ -1,3 +1,5 @@
+import { v4 as uuid } from 'uuid'
+
 type ChatMessage = {
   id: string
   date: Date
@@ -19,9 +21,9 @@ export type Chat = {
 
 const conversation: Chat[] = [
   {
-    id: 'sdsadfasdf',
+    id: uuid(),
     message: {
-      id: 'you',
+      id: uuid(),
       date: new Date(),
       author: 'new author',
       content:
@@ -29,9 +31,9 @@ const conversation: Chat[] = [
     },
   },
   {
-    id: 'sdsadfasdfasdf',
+    id: uuid(),
     message: {
-      id: 'me',
+      id: uuid(),
       date: new Date(),
       author: 'other author',
       content:
@@ -39,9 +41,9 @@ const conversation: Chat[] = [
     },
   },
   {
-    id: 'sdsadfasdf',
+    id: uuid(),
     message: {
-      id: 'you',
+      id: uuid(),
       date: new Date(),
       author: 'new author',
       content: 'Lorem ipsum',
@@ -52,13 +54,13 @@ const conversation: Chat[] = [
 const data = {
   participants: {
     me: {
-      id: 'sdasfdasgfg',
+      id: uuid(),
       firstName: 'David',
       lastName: 'Smith',
       image: '',
     },
     you: {
-      id: 'sdfsdf',
+      id: uuid(),
       firstName: 'John',
       lastName: 'Doe',
       image: '',

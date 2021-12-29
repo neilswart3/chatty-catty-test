@@ -4,6 +4,7 @@ import Styled from './styles'
 
 interface Props {
   children: React.ReactNode
+  back?: string | null
   header?: React.ReactNode
   footer?: React.ReactNode
   className?: string
@@ -13,6 +14,7 @@ interface Props {
 const GeneralLayout: React.FC<Props> = (props) => {
   const {
     children,
+    back = null,
     className = 'GeneralLayout',
     header = null,
     footer = null,
@@ -23,7 +25,7 @@ const GeneralLayout: React.FC<Props> = (props) => {
     <Styled.GeneralLayout className={className}>
       {image && <Styled.Background image={image} />}
       <Styled.ContentWrap>
-        <PhoneLayout image={image} header={header} footer={footer}>
+        <PhoneLayout back={back} image={image} header={header} footer={footer}>
           {children}
         </PhoneLayout>
       </Styled.ContentWrap>

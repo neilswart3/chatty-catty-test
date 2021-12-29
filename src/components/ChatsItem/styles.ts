@@ -1,4 +1,4 @@
-import styled from '@emotion/styled'
+import styled from '@emotion/styled/macro'
 import {
   Card,
   CardActionArea as MuiCardActionArea,
@@ -14,8 +14,14 @@ const ChatsItem = styled(Card)`
   }
 `
 
-const CardActionArea = styled(MuiCardActionArea)`
+interface StyledActionAreaProps {
+  to: string
+  component: any
+}
+
+const CardActionArea = styled(MuiCardActionArea)<StyledActionAreaProps>`
   background-color: transparent;
+  border-radius: 0.25rem;
 `
 
 const CardHeader = styled(MuiCardHeader)`

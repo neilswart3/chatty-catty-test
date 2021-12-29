@@ -12,6 +12,7 @@ const Favourites: React.FC<Props> = (props) => {
         {data.map(({ id, firstName, lastName, image }) => (
           <Favourite
             key={id}
+            id={id}
             firstName={firstName}
             lastName={lastName}
             image={image}

@@ -1,11 +1,11 @@
 import styled from '@emotion/styled/macro'
-import { Paper } from '@mui/material'
+import { Card, CardActionArea } from '@mui/material'
 
 interface FavouriteProps {
   image: string
 }
 
-const Favourite = styled(Paper)<FavouriteProps>`
+const Favourite = styled(Card)<FavouriteProps>`
   position: relative;
   height: 9rem;
   width: 6rem;
@@ -16,10 +16,16 @@ const Favourite = styled(Paper)<FavouriteProps>`
     image ? `background: url(${image}) no-repeat center/cover` : ''}
 `
 
-const FavouriteInner = styled.div`
+interface FavouriteInnerProps {
+  component: any
+  to: string
+}
+
+const FavouriteInner = styled(CardActionArea)<FavouriteInnerProps>`
   position: absolute;
   display: flex;
   align-items: flex-end;
+  justify-content: flex-start;
   top: 0;
   left: 0;
   width: 100%;

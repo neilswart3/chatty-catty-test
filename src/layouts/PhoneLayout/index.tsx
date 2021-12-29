@@ -4,6 +4,7 @@ import Styled from './styles'
 
 interface Props {
   children: React.ReactNode
+  back: string | null
   header: React.ReactNode
   footer: React.ReactNode
   className?: string

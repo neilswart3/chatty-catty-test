@@ -1,4 +1,5 @@
 import { Typography } from '@mui/material'
+import { Link } from 'react-router-dom'
 import { format } from 'date-fns'
 import { Avatar } from 'src/atoms'
 import Styled from './styles'
@@ -19,7 +20,7 @@ const ChatsItem: React.FC<Props> = (props) => {
 
   return (
     <Styled.ChatsItem elevation={0}>
-      <Styled.CardActionArea>
+      <Styled.CardActionArea to={`/chat/${id}`} component={Link}>
         <Styled.CardHeader
           avatar={<Avatar {...avatarProps} />}
           title={
