@@ -2,7 +2,7 @@ import React from 'react'
 import { PhoneLayout } from '..'
 import Styled from './styles'
 
-interface Props {
+export interface Props {
   children: React.ReactNode
   back?: string | null
   header?: React.ReactNode

@@ -80,7 +80,7 @@ const ContentWrap = styled(Paper)<ContentWrapProps>`
   grid-template-rows: auto 1fr auto;
   background-color: ${colors.background};
   ${({ image }) =>
-    image ? `background: url(${image}}) no-repeat center/cover;` : ''}
+    image ? `background: url(${image}) no-repeat center/cover;` : ''}
   overflow: hidden;
   height: 100%;
 

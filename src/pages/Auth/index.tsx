@@ -1,12 +1,12 @@
 import React from 'react'
-import { Auth as AuthComponent, LogoHeader } from 'src/components'
-import Styled from './styles'
+import { Auth as AuthComponent } from 'src/components'
+import { AuthLayout } from 'src/layouts'
 
 const Auth: React.FC = () => {
   return (
-    <Styled.Auth image='art-background.jpg' header={<LogoHeader />}>
+    <AuthLayout>
       <AuthComponent />
-    </Styled.Auth>
+    </AuthLayout>
   )
 }
 export default Auth

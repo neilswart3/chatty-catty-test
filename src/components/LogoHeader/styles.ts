@@ -3,7 +3,7 @@ import { Paper } from '@mui/material'
 import { colors } from 'src/lib'
 
 const LogoHeader = styled.div`
-  display: block;
+  padding: 1rem;
 `
 
 const Logo = styled(Paper)`

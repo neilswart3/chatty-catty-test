@@ -5,5 +5,15 @@ import Favourite from './Favourite'
 import HeaderBar from './HeaderBar'
 import Image from './Image'
 import Logo from './Logo'
+import TextField from './TextField'
 
-export { Avatar, BackButton, Bubble, Favourite, HeaderBar, Image, Logo }
+export {
+  Avatar,
+  BackButton,
+  Bubble,
+  Favourite,
+  HeaderBar,
+  Image,
+  Logo,
+  TextField,
+}

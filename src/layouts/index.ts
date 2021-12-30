@@ -1,7 +1,5 @@
+import AuthLayout from './AuthLayout'
 import GeneralLayout from './GeneralLayout'
 import PhoneLayout from './PhoneLayout'
 
-export {
-  GeneralLayout,
-  PhoneLayout,
-}
+export { AuthLayout, GeneralLayout, PhoneLayout }

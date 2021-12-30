@@ -30,7 +30,7 @@ const PhoneLayout: React.FC<Props> = (props) => {
         <Styled.Camera />
       </Styled.PhoneHeader>
       <Styled.ContentWrap image={image} elevation={0}>
-        {header && (
+        {(header || back) && (
           <Header title={title} back={back}>
             {header}
           </Header>
@@ -41,4 +41,5 @@ const PhoneLayout: React.FC<Props> = (props) => {
     </Styled.PhoneLayout>
   )
 }
+
 export default PhoneLayout
