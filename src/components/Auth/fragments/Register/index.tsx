@@ -1,16 +1,17 @@
-import { EmailOutlined, PersonOutlined, KeyOutlined } from '@mui/icons-material'
 import React, { useState } from 'react'
+import { EmailOutlined, KeyOutlined } from '@mui/icons-material'
 import { TextField } from 'src/atoms'
+import { registerRequest } from 'src/store/slices/auth'
+import { useAppDispatch, useAppSelector } from 'src/lib/hooks/redux'
+import { RegisterRequest } from 'src/store/slices/auth/types'
 import Styled from './styles'
 
 const initValues = {
-  name: '',
-  email: '',
-  password: '',
+  email: 'neilswart3@gmail.com',
+  password: '123456',
 }
 
 interface Values {
-  name: string
   email: string
   password: string
 }
@@ -18,7 +19,21 @@ interface Values {
 const Register: React.FC = () => {
   const [values, setValues] = useState<Values>(initValues)
 
-  const handleChange = (e: any): void => {}
+  const auth = useAppSelector((state) => state.auth)
+  const dispatch = useAppDispatch()
+
+  const handleChange = (e: any): void => {
+    const { name, value } = e.target
+
+    setValues((prev) => ({
+      ...prev,
+      [name]: value,
+    }))
+  }
+
+  const handleClick = (): void => {
+    dispatch(registerRequest({ ...values } as unknown as RegisterRequest))
+  }
 
   const handleSubmit = (e: any): void => {
     e.preventDefault()
@@ -26,13 +41,6 @@ const Register: React.FC = () => {
 
   return (
     <Styled.Register onSubmit={handleSubmit}>
-      <TextField
-        label='Name'
-        name='name'
-        value={values.name}
-        onChange={handleChange}
-        Icon={PersonOutlined}
-      />
       <TextField
         label='Email'
         name='email'
@@ -49,7 +57,12 @@ const Register: React.FC = () => {
         onChange={handleChange}
         Icon={KeyOutlined}
       />
-      <Styled.Button fullWidth variant='contained' type='submit'>
+      <Styled.Button
+        onClick={handleClick}
+        fullWidth
+        variant='contained'
+        type='submit'
+      >
         Submit
       </Styled.Button>
     </Styled.Register>
