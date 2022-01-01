@@ -6,13 +6,22 @@ interface Props {
   name: string
   label: string
   type?: string
+  disabled?: boolean
   value: string
   onChange(e: any): void
   Icon: React.ElementType
 }
 
 const TextField: React.FC<Props> = (props) => {
-  const { name, label, type = 'text', value, onChange, Icon } = props
+  const {
+    name,
+    label,
+    type = 'text',
+    disabled = false,
+    value,
+    onChange,
+    Icon,
+  } = props
 
   return (
     <Styled.TextFieldWrapper>
@@ -26,6 +35,7 @@ const TextField: React.FC<Props> = (props) => {
         onChange={onChange}
         variant='standard'
         margin='dense'
+        disabled={disabled}
         fullWidth
       />
     </Styled.TextFieldWrapper>

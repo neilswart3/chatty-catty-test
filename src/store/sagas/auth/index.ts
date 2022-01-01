@@ -3,12 +3,7 @@ import { call, put, takeLatest } from 'redux-saga/effects'
 import { AuthFactory } from 'src/lib/factories'
 import { formatError } from 'src/lib/utils'
 import { registerFailed } from 'src/store/slices/auth'
-import {
-  authTypes,
-  RegisterRequest,
-  RegisterFailed,
-  RegisterFailedPayload,
-} from 'src/store/slices/auth/types'
+import { authTypes, RegisterRequest } from 'src/store/slices/auth/types'
 
 function* handleAuth({ payload }: RegisterRequest): any {
   const { email, password } = payload
@@ -32,7 +27,6 @@ function* handleAuth({ payload }: RegisterRequest): any {
 
     yield put(registerFailed({ error }))
 
-    console.log('error:', error)
     // console.log('error:', error)
   }
 

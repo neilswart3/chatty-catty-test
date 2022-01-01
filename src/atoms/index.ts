@@ -1,6 +1,7 @@
 import Avatar from './Avatar'
 import BackButton from './BackButton'
 import Bubble from './Bubble'
+import ErrorAlert from './ErrorAlert'
 import Favourite from './Favourite'
 import HeaderBar from './HeaderBar'
 import Image from './Image'
@@ -11,6 +12,7 @@ export {
   Avatar,
   BackButton,
   Bubble,
+  ErrorAlert,
   Favourite,
   HeaderBar,
   Image,
