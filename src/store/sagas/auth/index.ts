@@ -1,7 +1,7 @@
 import { TakeableChannel } from 'redux-saga'
 import { call, put, takeLatest } from 'redux-saga/effects'
 import { AuthFactory } from 'src/lib/factories'
-import { formatError } from 'src/lib/utils'
+import { formatError, ManageLocalStorage } from 'src/lib/utils'
 import { registerFailed, registerSuccess } from 'src/store/slices/auth'
 import { authTypes, RegisterRequest } from 'src/store/slices/auth/types'
 
@@ -14,7 +14,13 @@ function* handleAuth({ payload }: RegisterRequest): any {
 
     const data = { accessToken, uid, displayName, email: userEmail, photoURL }
 
+    ManageLocalStorage.set(data)
+
     yield put(registerSuccess({ data }))
+
+    const testUser = ManageLocalStorage.get()
+
+    console.log('testUser:', testUser)
   } catch (err) {
     const error = formatError(err)
 
