@@ -1,5 +1,6 @@
 import {
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
   updateProfile,
   User,
 } from 'firebase/auth'
@@ -10,6 +11,22 @@ class AuthFactory {
   static async createUser({ email, password }: any) {
     try {
       const data = await createUserWithEmailAndPassword(
+        firebase.auth,
+        email,
+        password
+      )
+
+      return data
+    } catch (err) {
+      const error = formatFirebaseError(err)
+
+      throw new Error(error)
+    }
+  }
+
+  static async signIn({ email, password }: any) {
+    try {
+      const data = await signInWithEmailAndPassword(
         firebase.auth,
         email,
         password

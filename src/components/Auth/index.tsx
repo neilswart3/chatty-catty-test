@@ -1,5 +1,9 @@
 import React from 'react'
-import { Login, Register, Welcome } from './fragments'
+import { useAppDispatch } from 'src/lib/hooks/redux'
+import { auth } from 'src/store/slices/auth'
+import { AuthRequest } from 'src/store/slices/auth/types'
+import { AuthForm, Welcome } from './fragments'
+import { Values } from './fragments/AuthForm'
 import Styled from './styles'
 
 interface Props {
@@ -7,21 +11,21 @@ interface Props {
 }
 
 const Auth: React.FC<Props> = ({ section = 'auth' }) => {
-  let component
+  const dispatch = useAppDispatch()
 
-  switch (section) {
-    case 'login':
-      component = <Login />
-      break
-    case 'register':
-      component = <Register />
-      break
-    default:
-      component = <Welcome />
-      break
+  const handleSubmit = (values: Values): void => {
+    if (section !== 'auth') {
+      dispatch(
+        auth.request({ ...values, authType: section } as unknown as AuthRequest)
+      )
+    }
   }
 
-  return <Styled.Auth>{component}</Styled.Auth>
+  return (
+    <Styled.Auth>
+      {section === 'auth' ? <Welcome /> : <AuthForm onSubmit={handleSubmit} />}
+    </Styled.Auth>
+  )
 }
 
 export default Auth

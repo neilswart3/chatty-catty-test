@@ -1,31 +1,31 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { CircularProgress } from '@mui/material'
 import { EmailOutlined, KeyOutlined } from '@mui/icons-material'
 import { ErrorAlert, TextField } from 'src/atoms'
-import { registerRequest } from 'src/store/slices/auth'
-import { useAppDispatch, useAppSelector } from 'src/lib/hooks/redux'
-import { RegisterRequest } from 'src/store/slices/auth/types'
+import { useAppSelector } from 'src/lib/hooks/redux'
 import Styled from './styles'
-import { CircularProgress } from '@mui/material'
 
 const initValues = {
   email: '',
   password: '',
 }
 
-interface Values {
+export interface Values {
   email: string
   password: string
 }
 
-const Register: React.FC = () => {
+interface Props {
+  onSubmit: (values: Values) => void
+}
+
+const AuthForm: React.FC<Props> = (props) => {
+  const { onSubmit } = props
+  const navigate = useNavigate()
   const [values, setValues] = useState<Values>(initValues)
 
   const { data, isLoading, error } = useAppSelector((state) => state.auth)
-  const dispatch = useAppDispatch()
-
-  console.log('data:', data)
-  console.log('isLoading:', isLoading)
-  console.log('error:', error)
 
   const handleChange = (e: any): void => {
     const { name, value } = e.target
@@ -39,15 +39,19 @@ const Register: React.FC = () => {
   const handleSubmit = (e: any): void => {
     e.preventDefault()
 
-    dispatch(registerRequest({ ...values } as unknown as RegisterRequest))
+    onSubmit({ ...values })
 
     if (!error) {
       setValues(initValues)
     }
+
+    if (!error && data) {
+      navigate('/')
+    }
   }
 
   return (
-    <Styled.Register onSubmit={handleSubmit}>
+    <Styled.AuthForm onSubmit={handleSubmit}>
       {error && <ErrorAlert message={error.message} />}
       <TextField
         label='Email'
@@ -78,7 +82,7 @@ const Register: React.FC = () => {
       >
         Submit
       </Styled.Button>
-    </Styled.Register>
+    </Styled.AuthForm>
   )
 }
-export default Register
+export default AuthForm

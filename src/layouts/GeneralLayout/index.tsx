@@ -40,4 +40,5 @@ const GeneralLayout: React.FC<Props> = (props) => {
     </Styled.GeneralLayout>
   )
 }
+
 export default GeneralLayout

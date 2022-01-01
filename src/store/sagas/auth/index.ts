@@ -2,35 +2,34 @@ import { TakeableChannel } from 'redux-saga'
 import { call, put, takeLatest } from 'redux-saga/effects'
 import { AuthFactory } from 'src/lib/factories'
 import { formatError, ManageLocalStorage } from 'src/lib/utils'
-import { registerFailed, registerSuccess } from 'src/store/slices/auth'
-import { authTypes, RegisterRequest } from 'src/store/slices/auth/types'
+import { auth } from 'src/store/slices/auth'
+import { authTypes, AuthRequest } from 'src/store/slices/auth/types'
 
-function* handleAuth({ payload }: RegisterRequest): any {
-  const { email, password } = payload
+export function* handleAuth({ payload }: AuthRequest): any {
+  const { email, password, authType } = payload
 
   try {
-    const { user } = yield call(AuthFactory.createUser, { email, password })
+    const authApi =
+      authType === 'login' ? AuthFactory.signIn : AuthFactory.createUser
+
+    const { user } = yield call(authApi, { email, password })
     const { accessToken, uid, displayName, email: userEmail, photoURL } = user
 
     const data = { accessToken, uid, displayName, email: userEmail, photoURL }
 
     ManageLocalStorage.set(data)
 
-    yield put(registerSuccess({ data }))
-
-    const testUser = ManageLocalStorage.get()
-
-    console.log('testUser:', testUser)
+    yield put(auth.success({ data }))
   } catch (err) {
     const error = formatError(err)
 
-    yield put(registerFailed({ error }))
+    yield put(auth.failed({ error }))
   }
 }
 
 export function* authWatcher() {
   yield takeLatest(
-    authTypes.AUTH_REGISTER_REQUEST as unknown as TakeableChannel<unknown>,
+    authTypes.AUTH_REQUEST as unknown as TakeableChannel<unknown>,
     handleAuth
   )
 }

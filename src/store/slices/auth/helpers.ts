@@ -1,32 +1,32 @@
 import { PayloadAction } from '@reduxjs/toolkit'
 import {
   AuthState,
-  RegisterRequestPayload,
-  RegisterFailedPayload,
-  RegisterSuccessPayload,
+  AuthRequestPayload,
+  AuthFailedPayload,
+  AuthSuccessPayload,
 } from './types'
 
-export const registerRequest = (
+export const authRequest = (
   state: AuthState,
-  _action: { payload: PayloadAction<RegisterRequestPayload> }
+  _action: { payload: PayloadAction<AuthRequestPayload> }
 ): AuthState => ({
   ...state,
   isLoading: true,
   error: null,
 })
 
-export const registerFailed = (
+export const authFailed = (
   state: AuthState,
-  { payload }: PayloadAction<RegisterFailedPayload>
+  { payload }: PayloadAction<AuthFailedPayload>
 ): AuthState => ({
   ...state,
   isLoading: false,
   error: payload.error,
 })
 
-export const registerSuccess = (
+export const authSuccess = (
   state: AuthState,
-  { payload }: PayloadAction<RegisterSuccessPayload>
+  { payload }: PayloadAction<AuthSuccessPayload>
 ): AuthState => ({
   ...state,
   isLoading: false,

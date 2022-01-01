@@ -9,9 +9,9 @@ export interface User {
 }
 
 export enum authTypes {
-  AUTH_REGISTER_REQUEST = 'auth/registerRequest',
-  AUTH_REGISTER_FAILED = 'auth/registerFailed',
-  AUTH_REGISTER_SUCCESS = 'auth/registerSuccess',
+  AUTH_REQUEST = 'auth/request',
+  AUTH_FAILED = 'auth/failed',
+  AUTH_SUCCESS = 'auth/success',
 }
 
 export interface AuthState {
@@ -20,32 +20,33 @@ export interface AuthState {
   error: FormattedError | null
 }
 
-export interface RegisterRequestPayload {
+export interface AuthRequestPayload {
+  authType: 'login' | 'register'
   email: string
   password: string
 }
 
-export interface RegisterFailedPayload {
+export interface AuthFailedPayload {
   error: FormattedError | null
 }
 
-export interface RegisterSuccessPayload {
+export interface AuthSuccessPayload {
   data: User
 }
 
-export interface RegisterRequest {
-  type: typeof authTypes.AUTH_REGISTER_REQUEST
-  payload: RegisterRequestPayload
+export interface AuthRequest {
+  type: typeof authTypes.AUTH_REQUEST
+  payload: AuthRequestPayload
 }
 
-export interface RegisterFailed {
-  type: typeof authTypes.AUTH_REGISTER_FAILED
-  payload: RegisterFailedPayload
+export interface AuthFailed {
+  type: typeof authTypes.AUTH_FAILED
+  payload: AuthFailedPayload
 }
 
-export interface RegisterSuccess {
-  type: typeof authTypes.AUTH_REGISTER_SUCCESS
-  payload: RegisterSuccessPayload
+export interface AuthSuccess {
+  type: typeof authTypes.AUTH_SUCCESS
+  payload: AuthSuccessPayload
 }
 
-export type AuthActions = RegisterRequest | RegisterSuccess | RegisterFailed
+export type AuthActions = AuthRequest | AuthSuccess | AuthFailed

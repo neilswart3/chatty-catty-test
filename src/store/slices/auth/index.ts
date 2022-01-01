@@ -18,14 +18,15 @@ export const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    registerRequest: helpers.registerRequest,
-    registerSuccess: helpers.registerSuccess,
-    registerFailed: helpers.registerFailed,
+    request: helpers.authRequest,
+    success: helpers.authSuccess,
+    failed: helpers.authFailed,
   },
 })
 
-export const { registerRequest, registerFailed, registerSuccess } =
-  authSlice.actions
+const { request, success, failed } = authSlice.actions
+
+export const auth = { request, success, failed }
 
 export const selectAuth = (state: any) => state.auth
 
