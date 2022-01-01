@@ -1,4 +1,3 @@
-import { PayloadAction } from '@reduxjs/toolkit'
 import { FormattedError } from 'src/lib/utils/types'
 
 export interface User {
@@ -6,7 +5,7 @@ export interface User {
   accessToken: string | null
   displayName: string | null
   email: string | null
-  photoUrl: string | null
+  photoURL: string | null
 }
 
 export enum authTypes {

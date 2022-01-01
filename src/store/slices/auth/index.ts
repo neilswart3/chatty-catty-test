@@ -8,7 +8,7 @@ const initialState: AuthState = {
     accessToken: null,
     displayName: null,
     email: null,
-    photoUrl: null,
+    photoURL: null,
   },
   isLoading: false,
   error: null,

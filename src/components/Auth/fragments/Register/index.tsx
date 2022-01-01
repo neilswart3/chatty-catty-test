@@ -8,8 +8,8 @@ import Styled from './styles'
 import { CircularProgress } from '@mui/material'
 
 const initValues = {
-  email: 'neilswart3@gmail.com',
-  password: '123456',
+  email: '',
+  password: '',
 }
 
 interface Values {
@@ -36,12 +36,14 @@ const Register: React.FC = () => {
     }))
   }
 
-  const handleClick = (): void => {
-    dispatch(registerRequest({ ...values } as unknown as RegisterRequest))
-  }
-
   const handleSubmit = (e: any): void => {
     e.preventDefault()
+
+    dispatch(registerRequest({ ...values } as unknown as RegisterRequest))
+
+    if (!error) {
+      setValues(initValues)
+    }
   }
 
   return (
@@ -66,7 +68,6 @@ const Register: React.FC = () => {
         disabled={isLoading}
       />
       <Styled.Button
-        onClick={handleClick}
         fullWidth
         variant='contained'
         type='submit'

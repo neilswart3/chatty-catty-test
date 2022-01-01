@@ -1,7 +1,6 @@
-export type MessageCode = 'EMAIL_EXISTS'
+export type Code = 'auth/email-already-in-use' | 'auth/invalid-email'
 
 export type FormattedError = {
-  code: number
-  messageCode: MessageCode
+  code: Code
   message: string
 }

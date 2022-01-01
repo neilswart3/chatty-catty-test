@@ -1,17 +1,17 @@
-import { MessageCode } from './types'
+import { Code } from './types'
 
 const errorMessages = {
-  EMAIL_EXISTS: 'This email is already in use. Try logging in instead',
+  'auth/email-already-in-use':
+    'This email is already in use. Try logging in instead.',
+  'auth/invalid-email': 'Invalid email. Please enter a valid email.',
 }
 
 const formatFirebaseError = (err: any): string => {
-  const { customData } = JSON.parse(JSON.stringify(err))
-  const { code, message: messageCode } = customData._tokenResponse.error
+  const { code } = JSON.parse(JSON.stringify(err))
 
   return JSON.stringify({
     code,
-    messageCode,
-    message: errorMessages[messageCode as MessageCode],
+    message: errorMessages[code as Code],
   })
 }
 
